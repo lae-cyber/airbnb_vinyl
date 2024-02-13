@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'static_pages#home'
 
   # Vinyl routes
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   # Reviews routes
   post '/reviews', to: 'reviews#create', as: 'reviews'
   delete '/reviews/:id', to: 'reviews#destroy'
+
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
