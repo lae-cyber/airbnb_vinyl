@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "VinylRent", root_path, class: "navbar-brand" %>
+  <a class="navbar-brand mx-auto" href="#">
+      <img src="/assets/vinyllogo.jpg">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ms-auto flex">
+        <form class="flex my-2 my-lg-0">
+          <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search" value="<%= params[:query] %>">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <%= link_to "Add Vinyl Booking", vinyls_new_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+        <%= link_to "Login or Sing Up", root_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+        <%= link_to "Log out", root_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+        <%= link_to "Your Bookings", my_vinyls_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+        <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= asset_path('avatar.jpg') %>
+      </div>
+    </div>
+  </div>
+</nav>
