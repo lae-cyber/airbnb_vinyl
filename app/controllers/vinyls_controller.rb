@@ -4,7 +4,7 @@ class VinylsController < ApplicationController
   def index
     if params[:query].present?
       @query = params[:query]
-      @vinyls = Vinyl.where("name LIKE ?", "%#{params[:query]}%")
+      @vinyls = Vinyl.where("title LIKE ?", "%#{params[:query]}%")
     else
       @vinyls = Vinyl.all
     end
@@ -12,6 +12,12 @@ class VinylsController < ApplicationController
 
   def show
     @vinyls = Vinyl.all
+    if params[:query].present?
+      @query = params[:query]
+      @vinyls = Vinyl.where("title LIKE ?", "%#{params[:query]}%")
+    else
+      @vinyls = Vinyl.all
+    end
   end
 
   def create

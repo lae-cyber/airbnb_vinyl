@@ -1,6 +1,26 @@
-<div class="container mt-3">
+<div class="container">
   <div class="row">
     <div class="col-12">
       <h1>All Vinyls we have listed</h1>
     </div>
   </div>
+
+<div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @vinyls.count %> vinyls out of our <%= Vinyl.count %> in our Archive for rental.</p>
+      <% else %>
+        <p>Currently there are <%= Vinyl.count %> Vinyls in our Archive for rental.</p>
+      <% end %>
+    </div>
+  </div>
+
+<% @vinyls.each do |vinyl| %>
+  <div class="card-product">
+  <%= image_tag vinyl.picture_url, alt: vinyl.title, class: "vinyl-image" %>
+  <div class="card-product-infos">
+    <h2><%= vinyl.title %></h2>
+    <p>By <strong><%= vinyl.artist %></strong>
+  </div>
+</div>
+<% end %>
