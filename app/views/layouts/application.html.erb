@@ -12,7 +12,12 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+
     <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+
     <%= yield %>
+    <h2> <%= current_user&.email %></h2>
+
   </body>
 </html>
