@@ -2,6 +2,7 @@ class VinylsController < ApplicationController
   before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
 
   def index
+    @vinyls = Vinyl.all
     if params[:query].present?
       @query = params[:query]
       @vinyls = Vinyl.where("title LIKE ?", "%#{params[:query]}%")
@@ -11,13 +12,6 @@ class VinylsController < ApplicationController
   end
 
   def show
-    @vinyls = Vinyl.all
-    if params[:query].present?
-      @query = params[:query]
-      @vinyls = Vinyl.where("title LIKE ?", "%#{params[:query]}%")
-    else
-      @vinyls = Vinyl.all
-    end
   end
 
   def new
@@ -32,10 +26,6 @@ class VinylsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @vinyls = Vinyl.all
   end
 
   def edit
