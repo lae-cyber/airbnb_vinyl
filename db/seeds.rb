@@ -10,7 +10,7 @@
 
 require "faker"
 
-6.times do
+2.times do
   User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 8)
@@ -19,9 +19,44 @@ require "faker"
   Vinyl.create!(
     title: Faker::Music::RockBand.song,
     artist: Faker::Music::RockBand.name,
+    genre: 'indie-rock',
     availability: true,
     price: Faker::Number.positive(from: 1.00, to: 5000.00),
-    picture_url: Faker::LoremFlickr.image(size: "50x60", search_terms: ['music']),
+    picture_url: "https://images.unsplash.com/photo-1521547418549-6a31aad7c177?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    user: User.last
+  )
+end
+
+2.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8)
+  )
+
+  Vinyl.create!(
+    title: Faker::Music::RockBand.song,
+    artist: Faker::Music::RockBand.name,
+    genre: 'pop',
+    availability: true,
+    price: Faker::Number.positive(from: 1.00, to: 5000.00),
+    picture_url: "https://images.unsplash.com/photo-1548778052-311f4bc2b502?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    user: User.last
+  )
+end
+
+2.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8)
+  )
+
+  Vinyl.create!(
+    title: Faker::Music::RockBand.song,
+    artist: Faker::Music::RockBand.name,
+    genre: 'electro',
+    availability: true,
+    price: Faker::Number.positive(from: 1.00, to: 5000.00),
+    picture_url: "https://images.unsplash.com/photo-1501510691679-728450bdcb40?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     user: User.last
   )
 end
@@ -33,5 +68,5 @@ Vinyl.create!(
   genre: 'indie-rock',
   availability: true,
   price: 0.3,
-  picture_url:'https://www.xsnoize.com/wp-content/webp-express/webp-images/uploads/2015/12/FINALL-TELL-ME-IM-PRETTY-CTE_TMIPretty_CVR_F2.jpg.png.webp'
+  picture_url: "https://www.cagetheelephant.com/assets/img/og.jpg"
 );
