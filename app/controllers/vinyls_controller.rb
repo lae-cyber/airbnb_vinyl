@@ -1,5 +1,5 @@
 class VinylsController < ApplicationController
-  # before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
+  before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -20,19 +20,31 @@ class VinylsController < ApplicationController
     end
   end
 
-  def create
+  def new
+    @vinyl = Vinyl.new
   end
 
-  def destroy
+  def create
+    @vinyl = Vinyl.new(vinyl_params)
+    @vinyl.user = current_user
+    if @vinyl.save
+      redirect_to vinyls_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @vinyls = Vinyl.all
   end
 
   def edit
   end
 
-  def update
+  def destroy
   end
 
-  def new
+  def update
   end
 
   def mine
@@ -40,7 +52,11 @@ class VinylsController < ApplicationController
 
   private
 
+  def set_vinyl
+    @vinyl = Vinyl.find(params[:id])
+  end
+
   def vinyl_params
-    params.require(:vinyl).permit(:title, :genre, :artist, price:)
+    params.require(:vinyl).permit(:title, :description, :artist, :genre, :availability, :price)
   end
 end

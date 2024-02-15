@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="container-fluid col-8">
+=======
+<div class="container">
+>>>>>>> master
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -14,9 +18,19 @@
   </div>
 
   <div class="form-actions">
+<<<<<<< HEAD
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+=======
+  <%= f.button :submit, "Submit", class: "btn btn-success border" %>
+  </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+>>>>>>> master
 </div>

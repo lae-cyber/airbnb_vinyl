@@ -1,0 +1,9 @@
+<%= simple_form_for(vinyl) do |v| %>
+  <%= v.input :title %>
+  <%= v.input :description %>
+  <%= v.input :artist %>
+  <%= v.input :genre %>
+  <%= v.input :availability, as: :is_active, as: :boolean %>%
+  <%= v.input :price %>
+  <%= v.submit class: "btn btn-primary" %>
+<% end %>

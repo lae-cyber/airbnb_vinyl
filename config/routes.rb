@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   # Vinyl routes
   get '/vinyls', to: 'vinyls#index'
+  get '/vinyls/new', to: 'vinyls#new'
+  get '/vinyls/mine', to: 'vinyls#mine', as: 'my_vinyls'
   get '/vinyls/:id', to: 'vinyls#show', as: 'vinyl'
   post '/vinyls/:id/bookings', to: 'bookings#create', as: 'vinyl_bookings'
-  get '/vinyls/mine', to: 'vinyls#mine', as: 'my_vinyls'
   delete '/vinyls/:id', to: 'vinyls#destroy'
   get '/vinyls/:id/edit', to: 'vinyls#edit', as: 'edit_vinyl'
   patch '/vinyls/:id', to: 'vinyls#update'
-  get '/vinyls/new', to: 'vinyls#new'
   post '/vinyls', to: 'vinyls#create'
 
   # Reviews routes
