@@ -47,7 +47,7 @@ class VinylsController < ApplicationController
   end
 
   def mine
-    @vinyls = Vinyl.all
+    @vinyls = Vinyl.where(user_id: current_user.id)
   end
 
   private
