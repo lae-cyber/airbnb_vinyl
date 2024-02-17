@@ -13,14 +13,14 @@
         </form>
 
         <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <%= link_to "Your Bookings", my_vinyls_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%= link_to "Your Bookings", my_vinyls_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
         <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <%= link_to "Sing Up",  new_user_registration_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%= link_to "Log in", new_user_session_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%= link_to "Sign Up",  new_user_registration_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
         <% end %>
-        <%= link_to "Browse All", vinyls_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <%= link_to "Add Vinyl Booking", vinyls_new_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%# <%= link_to "Browse All", vinyls_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%= link_to "Add Vinyl Booking", vinyls_new_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
 
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= asset_path('avatar.jpg') %>" >
       </div>
