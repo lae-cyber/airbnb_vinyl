@@ -1,0 +1,19 @@
+.btn.custom-btn {
+  background-color: #fefdfc;
+  border: dashed;
+  border-color: #3d2421;
+  border-radius: 10%;
+  }
+
+
+.btn.custom-btn:hover {
+    background-color: #3d2421;
+    color: #ffff;
+    }
+
+
+.btn.custom-btn.dark {
+    background-color: #3d2421;
+    color: #ffff;
+    border-color: #f7d0cb;
+    }
