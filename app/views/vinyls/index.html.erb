@@ -34,8 +34,9 @@
           <%# # for each row 3 cards 1 per vinly %>
             <div class="card">
               <div class="card-head">
-              <%= cl_image_tag vinyl.photo.key,
-                  width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
+                <% if vinyl.photo.attached? %>
+                  <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
+                <% end %>
                 <div class="card-overlay"><h2><%= vinyl.genre %></h2></div>
               </div>
               <div class="card-body">

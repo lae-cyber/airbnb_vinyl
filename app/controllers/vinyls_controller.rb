@@ -29,15 +29,25 @@ class VinylsController < ApplicationController
   end
 
   def edit
+    @vinyl = Vinyl.find(params[:id])
   end
 
   def destroy
+    @vinyl.destroy
+    redirect_to vinyls_path, status: :see_other
   end
 
   def update
+    @vinyl = Vinyl.find(params[:id])
+    if @vinyl.update(vinyl_params)
+      redirect_to @vinyl, notice: 'Vinyl was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def mine
+    @vinyls = Vinyl.all
   end
 
   private
