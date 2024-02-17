@@ -36,6 +36,8 @@
               <div class="card-head">
                 <% if vinyl.photo.attached? %>
                   <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
+                <% else %>
+                  <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
                 <% end %>
                 <div class="card-overlay"><h2><%= vinyl.genre %></h2></div>
               </div>
