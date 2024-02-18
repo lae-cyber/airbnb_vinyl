@@ -1,0 +1,7 @@
+<%= simple_form_for(@booking) do |b| %>
+<%= b.input :start_date, as: :date, html5: true %>
+<%= b.input :end_date, as: :date, html5: true %>
+<%= b.input :vinyl_id, :as => :hidden, :input_html => { :value => 1 } %>
+<%= b.input :user_id, :as => :hidden, :input_html => { :value => current_user&.id  } %>
+<%= b.submit class: "btn custom-btn form btn-outline-secondary" %>
+<% end %>
