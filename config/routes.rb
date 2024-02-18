@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   post '/reviews', to: 'reviews#create', as: 'reviews'
   delete '/reviews/:id', to: 'reviews#destroy'
 
-
+  get '/bookings/new', to: 'bookings#new'
+  resources :bookings, only: [:new, :create]
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
