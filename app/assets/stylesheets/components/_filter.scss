@@ -12,9 +12,10 @@ ul.filters > li{
 
 ul.filters > li >a{
   display: block;
-  color: rgb(20, 75, 193);
+  color: #8E6E59;
   text-decoration: none;
   padding: 5px 20px;
+  border-radius: 10%;
 }
 
 ul.filters > li >a:hover{
@@ -23,5 +24,9 @@ ul.filters > li >a:hover{
 
 ul.filters > li.active > a{
   color: aliceblue;
-  background-color: rgb(20, 75, 193);
+  background-color: #3d2421;
+}
+
+.search-bar{
+  border: 1px solid #3d242180 !important;
 }
