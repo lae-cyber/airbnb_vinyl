@@ -1,29 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <%= link_to "VinylRent", root_path, class: "navbar-brand" %>
   <a class="navbar-brand mx-auto" href="#">
       <img src="/assets/vinyllogo.jpg">
     </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse navitems" id="navbarSupportedContent">
       <div class="ms-auto flex">
         <form class="flex my-2 my-lg-0">
           <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search" value="<%= params[:query] %>">
-          <button class="btn custom-btn my-2 my-sm-0" type="submit">Search</button>
         </form>
 
         <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <%= link_to "Your Bookings", my_vinyls_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <%= link_to "Sign Up",  new_user_registration_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
+        <%= link_to root_path do %>
+         <%= image_tag "home2.png", alt: "Home", width: "32", height: "32"%>
+         <% end %>
+        <%= link_to my_vinyls_path do %>
+         <%= image_tag "menu2.png", alt: "My Bookings", width: "32", height: "32"%>
         <% end %>
-        <%# <%= link_to "Browse All", vinyls_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-        <%= link_to "Add Vinyl Booking", vinyls_new_path, class: "btn custom-btn my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center" %>
-
-        <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= asset_path('avatar.jpg') %>
-        <i class="fa-solid fa-circle-user fa-xl data-fa-transform="shrink-8 down-6"></i>
+         <%= link_to vinyls_new_path do %>
+          <%= image_tag "plus.png", alt: "New Booking", width: "32", height: "32"%>
+         <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= image_tag "logout.png", alt: "Sign Out", width: "32", height: "32"%>
+          <% end %>
+        <% else %>
+        <%= link_to "log in", new_user_session_path, class: "btn outline-outline-secondary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center", style: "color: #6c757d; border-color: #6c757d;"%>
+        <%= link_to "sign up",  new_user_registration_path, class: "btn outline-outline-secondary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center", style: "color: #6c757d; border-color: #6c757d;" %>
+        <% end %>
       </div>
     </div>
   </div>
