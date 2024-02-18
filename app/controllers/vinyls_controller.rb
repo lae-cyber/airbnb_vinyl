@@ -23,7 +23,7 @@ class VinylsController < ApplicationController
     @vinyl = Vinyl.new(vinyl_params)
     @vinyl.user = current_user
     if @vinyl.save
-      redirect_to vinyls_path
+      redirect_to '/vinyls/mine.html', notice: 'Vinyl was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
