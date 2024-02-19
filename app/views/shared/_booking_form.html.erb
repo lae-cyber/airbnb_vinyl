@@ -1,6 +1,6 @@
 <div class="col-4 border shadow text-center" data-controller="booking-form" >
 
-    <h3 class="fw-bold mt-2">Rent this vinyl</i></h3>
+    <h3 class="fw-bold mt-2 shadow-text">Rent this vinyl</i></h3>
     <hr>
 
     <%= form_tag vinyl_bookings_path(@vinyl), method: :post do %>
@@ -32,5 +32,20 @@
         <span style="margin: 0 10px;"><%= @total_price %> CHF</span>
       </div>
     </div>
+
+    <div class="border bg-light" style="padding: 20px">
+          <div class="flat-show-card">
+            <div class="flex-align">
+              <h6 class="no-mb">Share</h6>
+              <div class="flex">
+                <i class="fa-brands fa-facebook fa-2x" style="color: #316FF6;"></i>
+                <i class="fa-brands fa-whatsapp fa-2x" style="color: #075E54;"></i>
+                <i class="fa-brands fa-pinterest fa-2x mr-4 ml-2" style="color: #E60023;"></i>
+                <i class="fa-regular fa-envelope fa-2x ml-2" style="color: grey;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
   </div>
 </div>
