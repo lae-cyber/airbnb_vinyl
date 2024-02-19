@@ -1,0 +1,36 @@
+<div class="col-4 border shadow text-center" data-controller="booking-form" >
+
+    <h3 class="fw-bold mt-2">Rent this vinyl</i></h3>
+    <hr>
+
+    <%= form_tag vinyl_bookings_path(@vinyl), method: :post do %>
+      <div class="input-group mb-3 shadow">
+        <span class="input-group-text" id="start-date-label">From:</span>
+        <%= text_field_tag :start_date, nil, class: "form-control bg-white", placeholder: "DD/MM/YY", "aria-label": "start-date", "aria-describedby": "start-date-label", data: { controller: "datepicker" }, "data-action": "change->booking-form#calculateTotalPrice" %>
+      </div>
+      <div class="input-group mb-3 shadow">
+        <span class="input-group-text" id="end-date-label">To:</span>
+        <%= text_field_tag :end_date, nil, class: "form-control bg-white", placeholder: "DD/MM/YY", "aria-label": "end-date", "aria-describedby": "end-date-label", data: { controller: "datepicker" }, "data-action": "change->booking-form#calculateTotalPrice" %>
+      </div>
+
+    <%= link_to "Rent", new_vinyl_booking_path(@vinyl), class: "btn btn-success mt-2", style: "width: 100%" %>
+  <% end %>
+
+
+  <hr>
+
+    <div class="mb-4">
+      <div class="d-flex align-items-center">
+        <h6 class="mr-5 mb-0">Price/day:</h6>
+        <span style="margin: 0 10px;"><%= @vinyl.price %> CHF</span>
+      </div>
+    </div>
+
+    <div class="mb-0">
+      <div class="d-flex align-items-center">
+        <h6 class="mb-0 mb-0">Total Price:</h6>
+        <span style="margin: 0 10px;"><%= @total_price %> CHF</span>
+      </div>
+    </div>
+  </div>
+</div>

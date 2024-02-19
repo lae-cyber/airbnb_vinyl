@@ -1,47 +1,26 @@
 <div class="container margin-top-negative">
   <div class="row">
     <div class="col-4">
-       <% if @vinyl.photo.attached? %>
-                     <%= cl_image_tag @vinyl.photo.key, crop: :fill, class:"d-block w-100 h-100" %>
-                  <% else %>
-                    <img src="/assets/vinyltwo.jpg"  class="d-block w-100 h-100">
-                  <% end %>
+      <% if @vinyl.photo.attached? %>
+        <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block w-100 h-100" %>
+      <% else %>
+        <img src="/assets/vinyltwo.jpg" class="d-block w-100 h-100">
+      <% end %>
     </div>
     <div class="col-4">
       <div>
-        <h1><%= @vinyl.title %></h1>
+        <h3 class="text-primary pb-2" style="font-weight: bold;"><%= @vinyl.title %></h3>
         <p>By <%= @vinyl.artist %></p>
       </div>
       <div>
-        <h3>A bit more about this vinyl...</h3>
+        <h5>A bit more about this vinyl...</h5>
         <p><%= @vinyl.description %></p>
+  <hr>
+        <%= link_to vinyl_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'ml-3 text-danger' do %>
+        <i class="fa-solid fa-arrow-left"></i>Back to Vinyls
+    <% end %>
       </div>
     </div>
-
-    <div class="col-4">
-      <div>
-        <h5>Rent this vinyl!</h5>
-
-        <form action="">
-          <div class="input-group">
-            <span class="input-group-text" id="start-date-label">From:</span>
-            <input type="text" class="form-control" placeholder="01/02/2024" aria-label="start-date" aria-describedby="start-date-label">
-          </div>
-          <div class="input-group mt-2">
-            <span class="input-group-text" id="end-date-label">To:</span>
-            <input type="text" class="form-control" placeholder="10/02/2024" aria-label="end-date" aria-describedby="start-date-label">
-          </div>
-          <input type="submit" value="Rent" class="btn btn-success mt-2" style="width: 100%">
-        </form>
-      </div>
-      <div>
-        <h3>Details</h3>
-        <div class="flex">
-          <div class="flex ms-3">
-            <%= @vinyl.price %>€ per day
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/booking_form" %>
   </div>
 </div>

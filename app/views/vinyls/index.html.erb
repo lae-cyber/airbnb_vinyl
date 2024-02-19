@@ -1,61 +1,59 @@
 <%# the filter js function will use jQuery at the moment%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <%# <h1>All Vinyls we have listed</h1> %>
-       <% if @query %>
+      <% if @query %>
         <h2>You searched for <strong><%= @query %></strong>. We found <%= @vinyls.count %> vinyls out of our <%= Vinyl.count %> in our Archive for rental.</h2>
       <% else %>
         <h2>Currently there are <%= Vinyl.count %> Vinyls in our Archive for rental.</h2>
       <% end %>
     </div>
   </div>
-  </div>
 </div>
 
-<%# container for all the Vinyl cards Filters%>
-<div class="container align-items-right">
-  <div class="row align-items-right">
+<!-- Container for all the Vinyl cards and Filters -->
+<div class="container">
+  <div class="row">
     <div class="col-lg-12">
-    <%# # filter can be set by genre %>
+      <!-- Filter buttons -->
       <ul class="filters">
-        <li class="active" data-filter="*"><a href="#!">all</a></li>
-        <li data-filter=".pop"><a href="#!">pop</a></li>
-        <li data-filter=".electro"><a href="#!">electro</a></li>
-        <li data-filter=".indie-rock"><a href="#!">indie-rock</a></li>
+        <li class="active" data-filter="*"><a href="#!">All</a></li>
+        <li data-filter=".indie-rock"><a href="#!">Classical</a></li>
+        <li data-filter=".pop"><a href="#!">Pop</a></li>
+        <!-- Add more filter categories as needed -->
       </ul>
+      <!-- Vinyl cards -->
       <div class="vinyls_card">
-
         <div class="row">
-        <% @vinyls.each do |vinyl| %>
-          <div class="col-lg-4 item <%=vinyl.genre%>">
-          <%# # for each row 3 cards 1 per vinly %>
-            <div class="card">
-              <div class="card-head">
-                <% if vinyl.photo.attached? %>
-                  <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
-                <% else %>
-                  <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
-                <% end %>
-                <div class="card-overlay"><h2><%= vinyl.genre %></h2></div>
-              </div>
-              <div class="card-body">
-                <h2><%= vinyl.title %> - By <%= vinyl.artist %></h2>
-                <%= link_to "More info", vinyl_path(vinyl) %>
-              </div>
+          <% @vinyls.each do |vinyl| %>
+            <div class="col-lg-4 item <%= vinyl.genre %>">
+              <a href="<%= vinyl_path(vinyl) %>" class="card-link">
+                <div class="card">
+                  <div class="card-head">
+                    <% if vinyl.photo.attached? %>
+                      <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block w-100 h-100" %>
+                    <% else %>
+                      <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                    <% end %>
+                    <div class="card-overlay" style="color: white";><h2><%= vinyl.genre %></h2></div>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title text-decoration-none" style="color: #063970;"><%= vinyl.title %> - By <span class="artist-name" style="color: #51749b;"><%= vinyl.artist %></span></h2>
+                    <%= link_to "More info", vinyl_path(vinyl), style: "text-decoration: none;" %>
+                  </div>
+                </div>
+              </a>
             </div>
-          </div>
           <% end %>
         </div>
-
       </div>
-
-
     </div>
   </div>
 </div>
+
 
 <script>
 // filter function
