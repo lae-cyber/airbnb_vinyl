@@ -32,22 +32,29 @@
       <!-- Vinyl cards -->
       <div class="vinyls_card">
         <div class="row">
-          <% @vinyls.each do |vinyl| %>
-            <div class="col-lg-4 item <%= vinyl.genre %>">
-              <a href="<%= vinyl_path(vinyl) %>" class="card-link">
-                <div class="card">
-                  <div class="card-head">
-                    <% if vinyl.photo.attached? %>
-                      <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block w-100 h-100" %>
-                    <% else %>
-                      <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
-                    <% end %>
-                    <div class="card-overlay" style="color: white";><h2><%= vinyl.genre %></h2></div>
-                  </div>
+
+        <% @vinyls.each do |vinyl| %>
+          <div class="col-12 col-sm-4 mb-4 <%=vinyl.genre%>">
+          <%# # for each row 3 cards 1 per vinly %>
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="<%= vinyl_path(vinyl) %>" class="card-link text-decoration-none">
+                <div>
+                  <% if vinyl.photo.attached? %>
+                    <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
+                  <% else %>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                  <% end %>
+                </div>
+                <div class="details-container d-flex">
+
                   <div class="card-body">
-                    <h2 class="card-title text-decoration-none" style="color: #063970;"><%= vinyl.title %> - By <span class="artist-name" style="color: #51749b;"><%= vinyl.artist %></span></h2>
-                    <%= link_to "More info", vinyl_path(vinyl), style: "text-decoration: none;" %>
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; "><%= vinyl.genre %></h2>
+                    <h3 style="font-weight: bold;"><%= vinyl.title %></h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By <%= vinyl.artist %></h4>
                   </div>
+
+                  <span class="price">$<%= sprintf("%.2f", vinyl.price) %></span>
 
                 </div>
               </a>
