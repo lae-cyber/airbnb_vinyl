@@ -15,12 +15,26 @@
 
 .card-body{
   color: black !important;
+  padding: 0px !important;
 }
 
 
 .card-body h2, .card-body h4{
   color: black !important;
   font-family: 'Lora', sans-serif !important;
-  color: whitegrey;
+}
 
+.details-container {
+  padding: 1rem;
+}
+
+.price {
+  font-size: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  text-decoration: none;
+  color: #252424;
+  font-family: 'Lora', sans-serif !important;
 }
