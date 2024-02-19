@@ -29,10 +29,15 @@
                     <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
                   <% end %>
                 </div>
-                <div class="card-body">
-                  <h2 style="color: #888; font-size: 16px;"><%= vinyl.genre %></h2>
-                  <h3 style="font-weight: bold;"><%= vinyl.title %></h3>
-                  <h4 style="font-size: 18px;">By <%= vinyl.artist %></h4>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; "><%= vinyl.genre %></h2>
+                    <h3 style="font-weight: bold;"><%= vinyl.title %></h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By <%= vinyl.artist %></h4>
+                  </div>
+
+                  <span class="price">$<%= sprintf("%.2f", vinyl.price) %></span>
                 </div>
               </a>
             </div>
