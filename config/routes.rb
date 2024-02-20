@@ -14,15 +14,17 @@ Rails.application.routes.draw do
   patch '/vinyls/:id', to: 'vinyls#update'
   post '/vinyls', to: 'vinyls#create'
 
+  # New booking route
+  get '/vinyls/:id/bookings/new', to: 'bookings#new', as: 'new_vinyl_booking'
+
   # Reviews routes
   post '/reviews', to: 'reviews#create', as: 'reviews'
   delete '/reviews/:id', to: 'reviews#destroy'
 
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
 end
+
 
 
 # Vinyl routes
