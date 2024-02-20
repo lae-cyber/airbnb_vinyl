@@ -1,71 +1,177 @@
 <%# the filter js function will use jQuery at the moment%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
-<div class="container" style="box-shadow: none !important;">
-  <div class="row">
-    <div class="col-12" style="box-shadow: none !important;">
-      <%# <h1>All Vinyls we have listed</h1> %>
-       <% if @query %>
-
-        <h2>You searched for <strong><%= @query %></strong>. We found <%= @vinyls.count %> vinyls out of our <%= Vinyl.count %> in our Archive for rental.</h2>
-      <% else %>
-        <h2>Currently there are <%= Vinyl.count %> Vinyls in our Archive for rental.</h2>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-<%# container for all the Vinyl cards Filters%>
 <div class="container align-items-right" style="box-shadow: none !important;">
   <div class="row align-items-right">
     <div class="col-lg-12">
-      <!-- Filter buttons -->
       <ul class="filters">
-        <li class="active" data-filter="*"><a href="#!">All</a></li>
-        <li data-filter=".indie-rock"><a href="#!">Classical</a></li>
-        <li data-filter=".pop"><a href="#!">Pop</a></li>
-        <!-- Add more filter categories as needed -->
+        <li class="active" data-filter="*"><a href="#!">all</a></li>
+        <li data-filter=".pop"><a href="#!">pop</a></li>
+        <li data-filter=".electro"><a href="#!">electro</a></li>
+        <li data-filter=".indie-rock"><a href="#!">indie-rock</a></li>
       </ul>
+      <div class="">
 
-      <!-- Vinyl cards -->
-      <div class="vinyls_card">
-        <div class="row">
-
-        <% @vinyls.each do |vinyl| %>
-          <div class="col-12 col-sm-4 mb-4 <%=vinyl.genre%>">
-          <%# # for each row 3 cards 1 per vinly %>
+         <div class="row">
+          <div class="col-12 col-sm-4 mb-4 Fusion">
 
             <div class="bg-white rounded shadow h-100 ">
-              <a href="<%= vinyl_path(vinyl) %>" class="card-link text-decoration-none">
+              <a href="/vinyls/2" class="card-link text-decoration-none">
                 <div>
-                  <% if vinyl.photo.attached? %>
-                    <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
-                  <% else %>
                     <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
-                  <% end %>
                 </div>
                 <div class="details-container d-flex">
 
                   <div class="card-body">
-                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; "><%= vinyl.genre %></h2>
-                    <h3 style="font-weight: bold;"><%= vinyl.title %></h3>
-                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By <%= vinyl.artist %></h4>
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">Fusion</h2>
+                    <h3 style="font-weight: bold;">Rainbow Gobblins</h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By abc</h4>
                   </div>
 
-                  <span class="price">$<%= sprintf("%.2f", vinyl.price) %></span>
-
+                  <span class="price">$14.00</span>
                 </div>
               </a>
+
             </div>
-          <% end %>
+
+          </div>
+          <div class="col-12 col-sm-4 mb-4 bxvvcvcv">
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="/vinyls/3" class="card-link text-decoration-none">
+                <div>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                </div>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">bxvvcvcv</h2>
+                    <h3 style="font-weight: bold;">Rainbow Gobblins</h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By vbxvxvvx</h4>
+                  </div>
+
+                  <span class="price">$15.00</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-4 mb-4 aa">
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="/vinyls/4" class="card-link text-decoration-none">
+                <div>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                </div>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">aa</h2>
+                    <h3 style="font-weight: bold;">Rainbow Gobblins</h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By aaa</h4>
+                  </div>
+
+                  <span class="price">$14.00</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-4 mb-4 Blues, Country, Rock &amp; Roll, Rockabilly">
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="/vinyls/5" class="card-link text-decoration-none">
+                <div>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                </div>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">Blues, Country, Rock &amp; Roll, Rockabilly</h2>
+                    <h3 style="font-weight: bold;">Kansas City 74 </h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By Elvis Presley</h4>
+                  </div>
+
+                  <span class="price">$100.00</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-4 mb-4 hhhh">
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="/vinyls/6" class="card-link text-decoration-none">
+                <div>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                </div>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">hhhh</h2>
+                    <h3 style="font-weight: bold;">Rainbow Gobblins</h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By hhhh</h4>
+                  </div>
+
+                  <span class="price">$40.00</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-4 mb-4 electro">
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="/vinyls/8" class="card-link text-decoration-none">
+                <div>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                </div>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">electro</h2>
+                    <h3 style="font-weight: bold;">test</h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By test</h4>
+                  </div>
+
+                  <span class="price">$10.00</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-4 mb-4 indie-rock">
+
+            <div class="bg-white rounded shadow h-100 ">
+              <a href="/vinyls/9" class="card-link text-decoration-none">
+                <div>
+                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img">
+                </div>
+                <div class="details-container d-flex">
+
+                  <div class="card-body">
+                    <h2 style="color: #aba9a9 !important; font-size: 14px; text-transform: uppercase; ">indie-rock</h2>
+                    <h3 style="font-weight: bold;">Rainbow Gobblins</h3>
+                    <h4 style="color: #aba9a9 !important; font-size: 18px;">By test</h4>
+                  </div>
+
+                  <span class="price">$80.00</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <script>
 // filter function
