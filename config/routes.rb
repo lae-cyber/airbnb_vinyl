@@ -2,17 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'static_pages#home'
-
-  # Vinyl routes
-  get '/vinyls', to: 'vinyls#index'
-  get '/vinyls/new', to: 'vinyls#new'
   get '/vinyls/mine', to: 'vinyls#mine', as: 'my_vinyls'
-  get '/vinyls/:id', to: 'vinyls#show', as: 'vinyl'
-  post '/vinyls/:id/bookings', to: 'bookings#create', as: 'vinyl_bookings'
-  delete '/vinyls/:id', to: 'vinyls#destroy'
-  get '/vinyls/:id/edit', to: 'vinyls#edit', as: 'edit_vinyl'
-  patch '/vinyls/:id', to: 'vinyls#update'
-  post '/vinyls', to: 'vinyls#create'
+  resources :vinyls
+  # Vinyl routes
+  #get '/vinyls', to: 'vinyls#index'
+  #get '/vinyls/new', to: 'vinyls#new'
+  #get '/vinyls/mine', to: 'vinyls#mine', as: 'my_vinyls'
+  #get '/vinyls/:id', to: 'vinyls#show', as: 'vinyl'
+  #post '/vinyls/:id/bookings', to: 'bookings#create', as: 'vinyl_bookings'
+  #delete '/vinyls/:id', to: 'vinyls#destroy'
+  #get '/vinyls/:id/edit', to: 'vinyls#edit', as: 'edit_vinyl'
+  #patch '/vinyls/:id', to: 'vinyls#update'
+  #post '/vinyls', to: 'vinyls#create'
+
 
   # New booking route
   get '/vinyls/:id/bookings/new', to: 'bookings#new', as: 'new_vinyl_booking'

@@ -18,7 +18,7 @@
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    <h2> <%= current_user&.email %></h2>
+    <h2 style="display:none;"> <%= current_user&.email %></h2>
 
   </body>
 </html>

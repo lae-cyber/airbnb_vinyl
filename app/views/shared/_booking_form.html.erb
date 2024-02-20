@@ -3,7 +3,7 @@
     <h3 class="fw-bold mt-2 shadow-text">Rent this vinyl</i></h3>
     <hr>
 
-    <%= form_tag vinyl_bookings_path(@vinyl), method: :post do %>
+    <%= form_tag vinyls_path(@vinyl), method: :post do %>
       <div class="input-group mb-3 shadow">
         <span class="input-group-text" id="start-date-label">From:</span>
         <%= text_field_tag :start_date, nil, class: "form-control bg-white", placeholder: "DD/MM/YY", "aria-label": "start-date", "aria-describedby": "start-date-label", data: { controller: "datepicker" }, "data-action": "change->booking-form#calculateTotalPrice" %>
