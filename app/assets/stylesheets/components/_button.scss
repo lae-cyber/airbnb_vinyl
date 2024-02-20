@@ -1,19 +1,9 @@
-.btn.custom-btn {
-  background-color: #fefdfc;
-  border: dashed;
-  border-color: #3d2421;
-  border-radius: 10%;
-  }
+.custom-btn {
+  background-color: #2b2828; /* Slightly greyish color */
+  border-color: #252323; /* Border color */
+}
 
-
-.btn.custom-btn:hover {
-    background-color: #3d2421;
-    color: #ffff;
-    }
-
-
-.btn.custom-btn.dark {
-    background-color: #3d2421;
-    color: #ffff;
-    border-color: #f7d0cb;
-    }
+.custom-btn:hover {
+  background-color: #ddd; /* Lighter grey on hover */
+  border-color: #aaa; /* Darker border on hover */
+}
