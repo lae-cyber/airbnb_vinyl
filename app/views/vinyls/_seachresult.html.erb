@@ -1,0 +1,13 @@
+<div class="seach-card">
+  <div class="card-body">
+    <% if @query %>
+    You have searched for:
+    <i class="fa-magnifying-glass"></i>
+    "<%= @query %>"
+    in our fantasic records archive.
+    We could find: <strong><%= @vinyls.count %></strong> record for your seach.
+    <% else %>
+    Currently we have <strong><%= Vinyl.count %></strong> records in our fantasic archive.
+    <% end %>
+  </div>
+</div>
