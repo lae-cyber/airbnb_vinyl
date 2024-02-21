@@ -13,14 +13,14 @@
         <li data-filter=".electro"><a href="#!">electro</a></li>
         <li data-filter=".indie-rock"><a href="#!">indie-rock</a></li>
       </ul>
-      <div class="">
-
+    <%# # cards for each Vinyl %>
+      <div class="vinyls_card">
          <div class="row">
         <% @vinyls.each do |vinyl| %>
-          <div class="col-12 col-sm-4 mb-4 <%=vinyl.genre%>">
+          <div class="col-12 col-sm-4 mb-4 item <%=vinyl.genre%>">
           <%# # for each row 3 cards 1 per vinly %>
 
-            <div class="bg-white rounded shadow h-100 ">
+            <div class="bg-white rounded shadow h-100">
               <a href="<%= vinyl_path(vinyl) %>" class="card-link text-decoration-none">
                 <div>
                   <% if vinyl.photo.attached? %>
