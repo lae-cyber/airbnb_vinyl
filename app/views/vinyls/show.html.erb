@@ -16,10 +16,8 @@
         <h5>A bit more about this vinyl...</h5>
         <p><%= @vinyl.description %></p>
   <hr>
-        <%= link_to vinyl_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'ml-3 text-danger' do %>
-        <i class="fa-solid fa-arrow-left"></i>Back to Vinyls
-    <% end %>
-      </div>
+        <%= link_to "Browse more Vinyls", vinyls_path, class:"btn btn-outline-secondary btn-sm float-right me-2" %></small >
+        </div>
     </div>
     <%= render "shared/booking_form" %>
   </div>
