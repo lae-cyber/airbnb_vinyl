@@ -8,17 +8,14 @@
       <% end %>
     </div>
     <div class="col-4">
-      <div>
         <h3 class="text-primary pb-2" style="font-weight: bold;"><%= @vinyl.title %></h3>
         <p>By <%= @vinyl.artist %></p>
-      </div>
-      <div>
+        <hr><%= link_to "Back to Vinyls", vinyls_path, class:"btn btn-outline-secondary btn-sm float-right me-2" %></small >
         <h5>A bit more about this vinyl...</h5>
         <p><%= @vinyl.description %></p>
-  <hr>
-        <%= link_to "Back to Vinyls", vinyls_path, class:"btn btn-outline-secondary btn-sm float-right me-2" %></small >
-      </div>
     </div>
-    <%= render "shared/booking_form" %>
+    <div class="col-4">
+        <%= render "shared/booking_form" %>
+    </div>
   </div>
 </div>
