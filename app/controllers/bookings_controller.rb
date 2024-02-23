@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_vinyl, only: [:new, :create]
   before_action :set_booking, only: [:show, :destroy]
+
   def new
     @vinyl = Vinyl.find(params[:vinyl_id])
     @booking = Booking.new
@@ -8,6 +9,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     @booking.vinyl = @vinyl
 
     if @booking.save
@@ -41,7 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:rental_from, :rental_to, :additional_details)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
 end
