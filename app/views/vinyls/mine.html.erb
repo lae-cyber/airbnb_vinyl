@@ -21,7 +21,7 @@
                   <% if vinyl.photo.attached? %>
                      <%= cl_image_tag vinyl.photo.key, crop: :fill, class:"d-block w-100 h-100" %>
                   <% else %>
-                    <img src="/assets/vinyltwo.jpg"  class="d-block w-100 h-100">
+                    <%= image_tag "vinyltwo.jpg"  class="d-block w-100 h-100">
                   <% end %>
                 </div>
                 <div class="col-sm-12 col-md-5 p-0">
