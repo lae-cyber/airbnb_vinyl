@@ -13,15 +13,16 @@ class BookingsController < ApplicationController
     @booking.vinyl = @vinyl
 
     if @booking.save
-      redirect_to vinyl_path(@vinyl), notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: "Successfully created"
     else
       render :new
     end
   end
 
-
   def show
-    @vinyl = Vinyl.find(params[:id])
+    @booking = Booking.find(params[:id])
+    @current_vinyl_booking = Vinyl.find(@booking.vinyl_id).title
+    # @vinyl = Vinyl.find(params[:id])
   end
 
   def destroy
