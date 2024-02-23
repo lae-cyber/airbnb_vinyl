@@ -42,7 +42,7 @@ class VinylsController < ApplicationController
   def update
     @vinyl = Vinyl.find(params[:id])
     if @vinyl.update(vinyl_params)
-      redirect_to @vinyl, notice: 'Vinyl was successfully updated.'
+      redirect_to my_vinyls_path, notice: 'Vinyl was successfully updated.'
     else
       render :edit
     end
