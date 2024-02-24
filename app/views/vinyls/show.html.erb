@@ -1,20 +1,30 @@
 <div class="container margin-top-negative">
   <div class="row">
     <div class="col-4">
-      <% if @vinyl.photo.attached? %>
-        <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block w-100 h-100" %>
-      <% else %>
-        <img src="/assets/vinyltwo.jpg" class="d-block w-100 h-100">
+      <%= link_to vinyls_path, class: "btn btn-outline-secondary btn-sm me-2 mt-2" do %>
+      <i class="fa-solid fa-angle-left"></i>
       <% end %>
+
+      <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+        <% if @vinyl.photo.attached? %>
+          <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block img-fluid" %>
+        <% else %>
+          <img src="/assets/vinyltwo.jpg" class="d-block img-fluid" alt="Placeholder Image">
+        <% end %>
+      </div>
     </div>
-    <div class="col-4">
-        <h3 class="text-primary pb-2" style="font-weight: bold;"><%= @vinyl.title %></h3>
-        <p>By <%= @vinyl.artist %></p>
-        <hr><%= link_to "Back to Vinyls", vinyls_path, class:"btn btn-outline-secondary btn-sm float-right me-2" %></small >
-        <h5>A bit more about this vinyl...</h5>
-        <p><%= @vinyl.description %></p>
+      <div class="col-4">
+        <h3 class="text-flat pb-1 mb-0 mt-5" style="font-weight: bold;"><%= @vinyl.title %> <small><i class="fa-solid fa-record-vinyl"></i></small></h3>
+          <p class="text-muted font-weight-normal mb-1">
+          <%= sprintf("%.2f", @vinyl.price) %>$ /day </i>
+          </p>
+
+          <p class="mb-1">By <%= @vinyl.artist %></p>
+
+        <h5 class="mt-5"> <p><%= @vinyl.description %></p> </h5>
     </div>
-    <div class="col-4">
+
+    <div class="col-4 border border-flat rounded shadow">
         <%= render "shared/booking_form" %>
     </div>
   </div>

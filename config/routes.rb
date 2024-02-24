@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rental_calculator/calculate_total_price'
+  get 'vinyl_bookings/calculate_total_price'
   devise_for :users
 
   root 'static_pages#home'
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
   # Reviews routes
   post '/reviews', to: 'reviews#create', as: 'reviews'
   delete '/reviews/:id', to: 'reviews#destroy'
+
 
   # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
