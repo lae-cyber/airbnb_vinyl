@@ -1,11 +1,21 @@
 import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
 
 export default class extends Controller {
   static targets = ["startDate", "endDate", "totalPrice", "vinylPrice"];
 
   connect() {
-    console.log("connect");
-    this.calculate(); // Calculate total price initially
+    const datePickrConfig = {
+      minDate: "today",
+
+
+    }
+    console.log(this);
+    console.log(this.startDateTarget);
+    flatpickr(this.endDateTarget, datePickrConfig);
+    flatpickr(this.startDateTarget, datePickrConfig);
+
+    // Calculate total price initially
   }
 
   calculate() {

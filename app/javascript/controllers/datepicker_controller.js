@@ -3,7 +3,7 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 
 export default class extends Controller {
   connect() {
-    flatp = flatpickr(this.element)
-    console.log(flatp)
+    flatpickr(this.element)
+    console.log(this.element)
   }
 }

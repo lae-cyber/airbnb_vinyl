@@ -1,6 +1,6 @@
-<h3 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #414040; mb-3">Rent this Vinyl</h3>
+<h3 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #414040; mb-4 mt-2">Rent this Vinyl</h3>
 <%#= link_to new_booking_path %>
-<div data-controller="rental-calculator" class="container p-4 shadow-lg rounded" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%)";>
+<div data-controller="rental-calculator" class="container p-4 shadow-lg rounded" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%)";>
   <!-- HTML content here -->
 
   <div id="vinyl-price" data-rental-calculator-target="vinylPrice" data-price="<%= @vinyl.price %>"></div>
@@ -14,6 +14,6 @@
     <% end %>
 
   <div class="text-start mt-2"> <!-- Added new div with styling -->
-    <span data-rental-calculator-target="totalPrice">CHF</span>
-  </div>
+
+    <span data-rental-calculator-target="totalPrice"></span>
 </div>
