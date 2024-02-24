@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <%= link_to "VinylRent", root_path, class: "navbar-brand" %>
   <a class="navbar-brand mx-auto" href="#">
-      <img src="/assets/vinyllogo.jpg">
+      <%= image_tag "vinyllogo.jpg"%>
     </a>
 
     <div class="collapse navbar-collapse navitems" id="navbarSupportedContent">
@@ -13,16 +13,24 @@
 
         <% if user_signed_in? %>
         <%= link_to root_path do %>
-         <%= image_tag "home2.png", alt: "Home", width: "32", height: "32"%>
+          <small class="helptext", data-tooltip="Home">
+          <%= image_tag "home2.png", alt: "Home", width: "32", height: "32"%>
+          </small>
          <% end %>
         <%= link_to my_vinyls_path do %>
-         <%= image_tag "navicon1.png", alt: "My Bookings", width: "32", height: "32"%>
+        <small class="helptext", data-tooltip="My Booking">
+          <%= image_tag "navicon1.png", alt: "My Bookings", width: "32", height: "32"%>
+        </small>
         <% end %>
          <%= link_to new_vinyl_path do %>
+        <small class="helptext", data-tooltip="New Booking">
           <%= image_tag "plus.png", alt: "New Booking", width: "32", height: "32"%>
+        </small>
          <% end %>
+        <small class="helptext", data-tooltip="Sign Out">
           <%= link_to destroy_user_session_path, method: :delete do %>
           <%= image_tag "logout.png", alt: "Sign Out", width: "32", height: "32"%>
+        </small>
           <% end %>
         <% else %>
         <%= link_to "log in", new_user_session_path, class: "btn outline-outline-secondary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center", style: "color: #6c757d; border-color: #6c757d;"%>

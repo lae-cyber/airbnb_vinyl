@@ -26,7 +26,7 @@
                   <% if vinyl.photo.attached? %>
                     <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "img-fluid card-img" %>
                   <% else %>
-                    <img src="/assets/vinyltwo.jpg" class="img-fluid card-img" style="width:300px !important; height:300px !important;">
+                    <%= image_tag("vinyltwo.jpg", class: "img-fluid card-img", style: "width:300px !important; height:300px !important;") %>
                   <% end %>
                 </div>
                 <div class="details-container d-flex">

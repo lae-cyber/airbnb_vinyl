@@ -43,3 +43,45 @@
 .navitems a, .navitems form{
   margin-right:20px !important;
 }
+
+.helptext {
+  position: relative;
+  display: inline-block;
+}
+
+.helptext::before {
+  content: attr(data-tooltip);
+  color: #ffffff;
+  background: #333;
+  border-radius: 0.4rem;
+  padding: 0.3rem;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.helptext:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.helptext:hover::after {
+  opacity: 1;
+}
+
+.helptext::after {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  transform: rotate(180deg);
+  transition: opacity 0.3s, transform 0.3s;
+}

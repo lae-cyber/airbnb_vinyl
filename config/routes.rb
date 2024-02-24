@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'rental_calculator/calculate_total_price'
-  get 'vinyl_bookings/calculate_total_price'
   devise_for :users
 
   root 'static_pages#home'
@@ -9,7 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:edit, :update, :destroy]
+  resources :bookings, only: [:edit, :update, :destroy, :show]
 
   # Vinyl routes
   #get '/vinyls', to: 'vinyls#index'
