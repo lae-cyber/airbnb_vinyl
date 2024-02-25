@@ -1,36 +1,34 @@
-<div class="container margin-top-negative">
-  <div class="row">
-    <small><%= link_to "Browse Vinyls", vinyls_path, class:"btn btn-outline-dark float-centre mt-0" %></small >
+<div class="content-wrap">
+  <div class="container margin-top-negative">
+    <div class="row">
+      <small><%= link_to vinyls_path, class: "btn btn-outline-dark float-centre mt-0" do %><i class="fa-solid fa-chevron-left"></i> Browse Vinyls
+      <% end %></small>
 
-    <div class="col-4">
-      <% if @vinyl.photo.attached? %>
-        <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block w-100 h-100" %>
-      <% else %>
-        <%= image_tag "vinyltwo.jpg", class:"d-block w-100 h-100" %>
-      <% end %>
-
-      <div class="d-flex justify-content-center align-items-center mb-3 mt-0" style="height: 100%;">
+      <div class="col-4">
         <% if @vinyl.photo.attached? %>
-          <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block img-fluid" %>
+          <%= cl_image_tag @vinyl.photo.key, crop: :fill, class: "d-block w-100 h-100" %>
         <% else %>
-          <img src="/assets/vinyltwo.jpg" class="d-block img-fluid" alt="Placeholder Image">
+          <%= image_tag "vinyltwo.jpg", class:"d-block w-100 h-100" %>
         <% end %>
       </div>
-    </div>
       <div class="col-4">
         <h3 class="text-flat pb-1 mb-0 mt-5" style="font-weight: bold;"><%= @vinyl.title %></h3>
           <p class="text-muted font-weight-normal mb-1">
           <%= sprintf("%.2f", @vinyl.price) %>CHF /day </i>
           </p>
 
-          <%= image_tag "singericon.jpg", alt: "Singer Icon", width: "32", height: "32", class: "me-2 mt-4" %><%= @vinyl.artist %></p>
+          <p class="mb-1 d-inline-block">
+            <i class="fa-solid fa-microphone-lines me-1"></i>
+            <%= @vinyl.artist %>
+          </p>
 
-          <%= image_tag "Description.png", alt: "Singer Icon", width: "32", height: "32", class: "me-2" %><%= @vinyl.description %></p> </h5>
-    </div>
 
-    <div class="col-4 border border-flat rounded shadow">
-        <%= render "shared/booking_form" %>
+          <p> <%= @vinyl.description %></p> </h5>
+      </div>
+
+      <div class="col-4 border border-flat rounded shadow">
+          <%= render "shared/booking_form" %>
+      </div>
     </div>
   </div>
-</div>
 </div>
