@@ -29,6 +29,10 @@ class BookingsController < ApplicationController
     redirect_to vinyl_path(@booking.vinyl), notice: 'Booking was successfully destroyed.'
   end
 
+  def mine
+
+  end
+
 
   private
 

@@ -3,10 +3,10 @@
     <div class="col">
 
           <div class="card mb-3">
-      <img <%= cl_image_tag @current_vinyl_booking.photo.key, crop: :fill, class: "card-img-top" %>
+     <%= cl_image_tag @current_vinyl_booking.photo.key, crop: :fill, class: "card-img-top" %>
       <div class="card-body">
-        <h5 class="card-title">You have booked <%= @current_vinyl_booking.title %></h5>
-        <p class="card-text">The owner of this vinyl will be sending it soon to your adress provided</p>
+        <p class="card-title" style="text-align: center;margin: 10px 10px 5px 5px; letter-spacing: 1px; color: #FFFFF;"> Your booking for "<%= @current_vinyl_booking.title %>" from "<%= @current_vinyl_booking.artist %>" was successful!</p>
+        <p class="card-text"> The owner of this vinyl will be sending it soon to your adress provided</p>
         <p class="card-text"><small class="text-body-secondary"><i class="fa-regular fa-calendar-days"></i> <%= @booking.start_date %> to <%= @booking.end_date %> </small></p>
       </div>
     </div>

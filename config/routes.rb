@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get '/vinyls/mine', to: 'vinyls#mine', as: 'my_vinyls'
+  get '/bookings/mine', to: 'bookings#mine', as: 'my_bookings'
   resources :vinyls do
     resources :bookings, only: [:new, :create]
   end
