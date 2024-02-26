@@ -15,19 +15,22 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking), notice: "Successfully created"
     else
-      render :new
+      render "vinyls/show", status: :unprocessable_entity
     end
   end
 
   def show
     @booking = Booking.find(params[:id])
-    @current_vinyl_booking = Vinyl.find(@booking.vinyl_id).title
-    # @vinyl = Vinyl.find(params[:id])
+    @current_vinyl_booking = Vinyl.find(@booking.vinyl_id)
   end
 
   def destroy
     @booking.destroy
     redirect_to vinyl_path(@booking.vinyl), notice: 'Booking was successfully destroyed.'
+  end
+
+  def mine
+
   end
 
 
@@ -44,7 +47,8 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :address,
+      :card_cvc, :card_number, :card_name, :card_expiry, :firstname, :lastname)
   end
 
 end
