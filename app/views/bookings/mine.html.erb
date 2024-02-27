@@ -1,1 +1,44 @@
-<h1>Hello Booking All Dashboard</h1>
+<!-- app/views/bookings/mine.html.erb -->
+<div class="container">
+  <%= link_to "Book More Vinyls", vinyls_path, class: "btn btn-outline-dark float-start mb-2 fw-bold bg-light" %>
+</div>
+
+<div class="container">
+  <h1>My Bookings</h1>
+
+  <table class="table border">
+    <thead>
+      <tr>
+        <th>Vinyl</th>
+        <th>Album</th>
+        <th>Artist</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td>
+
+          </td>
+          <td><%= booking.vinyl.title %></td>
+          <td><%= booking.vinyl.artist %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td>
+            <%= link_to vinyl_path(booking.vinyl), class: "btn btn-flat btn-sm" do %>
+              <i class="fas fa-edit" style="color: black;"></i> <!-- Edit icon with blue color -->
+            <% end %>
+
+            <%= link_to booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?"}, class: "float-right btn btn-flat btn-sm" do %>
+              <i class="fas fa-trash-alt" style="color: red;"></i> <!-- Delete icon -->
+            <% end %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
