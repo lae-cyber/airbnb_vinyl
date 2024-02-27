@@ -23,6 +23,16 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @current_vinyl_booking = Vinyl.find(@booking.vinyl_id)
+
+    # geocoding
+    @all_bookings = Booking.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @all_bookings.geocoded.map do |booking|
+      {
+        lat: booking.latitude,
+        lng: booking.longitude
+      }
+    end
   end
 
   def destroy
