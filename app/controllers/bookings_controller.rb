@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.vinyl = @vinyl
 
+
     if @booking.save
       redirect_to booking_path(@booking), notice: "Successfully created"
     else
@@ -40,7 +41,7 @@ class BookingsController < ApplicationController
   end
 
   def mine
-
+    @bookings = current_user.bookings.includes(:vinyl)
   end
 
 

@@ -1,17 +1,28 @@
 <h3 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #414040;">Rent this Vinyl</h3>
+<div data-controller="rental-calculator" class="container p-4 shadow-lg rounded" style="background: linear-gradient(to bottom left, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 100%)";>
+
+  <div id="vinyl-price" data-rental-calculator-target="vinylPrice" data-price="<%= @vinyl.price %>"></div>
+
     <%= simple_form_for([@vinyl, @booking]) do |b| %>
-    <span style="margin: 0 10px;"><%= @vinyl.price %>CHF/Day <i class="fa-solid fa-money-bill"></i></span>
+      <span class="ml-2 mb-4"><%= @vinyl.price %>CHF/Day <i class="fa-solid fa-money-bill"></i></span>
       <%= b.input :firstname %>
       <%= b.input :lastname %>
       <%= b.input :address %>
       <span>How long do you would like to be your renting periode?</span>
-      <%= b.input :start_date, as: :date, html5: true , input_html: {data: { rental_calculator_target: "startDate", action: "input->rental-calculator#calculate"}} %>
+      <%= b.input :start_date, as: :date, html5: true, input_html: {data: { rental_calculator_target: "startDate", action: "input->rental-calculator#calculate"}} %>
       <%= b.input :end_date, as: :date, html5: true, input_html: {data: { rental_calculator_target: "endDate", action: "input->rental-calculator#calculate" }} %>
-      <span data-rental-calculator-target="totalPrice"></span>
+
       <span>Please provide your payment infomation:</span>
       <%= b.input :card_name %>
       <%= b.input :card_number %>
       <%= b.input :card_expiry %>
       <%= b.input :card_cvc %>
+
+      <div class="d-flex justify-content-between align-items-center mt-2"> <!-- Use flexbox to align items -->
+      <span data-rental-calculator-target="totalPrice"></span>
+
       <%= b.submit class: "btn custom-btn form btn-outline-secondary" %>
+    </div>
       <% end %>
+      </div>
+  </div>
