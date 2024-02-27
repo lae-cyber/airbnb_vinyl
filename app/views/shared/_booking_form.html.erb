@@ -5,8 +5,9 @@
       <%= b.input :lastname %>
       <%= b.input :address %>
       <span>How long do you would like to be your renting periode?</span>
-      <%= b.input :start_date, as: :date, html5: true %>
-      <%= b.input :end_date, as: :date, html5: true %>
+      <%= b.input :start_date, as: :date, html5: true , input_html: {data: { rental_calculator_target: "startDate", action: "input->rental-calculator#calculate"}} %>
+      <%= b.input :end_date, as: :date, html5: true, input_html: {data: { rental_calculator_target: "endDate", action: "input->rental-calculator#calculate" }} %>
+      <span data-rental-calculator-target="totalPrice"></span>
       <span>Please provide your payment infomation:</span>
       <%= b.input :card_name %>
       <%= b.input :card_number %>
