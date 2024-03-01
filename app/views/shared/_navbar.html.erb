@@ -33,13 +33,14 @@
         </small>
          <% end %>
         <small class="helptext", data-tooltip="Sign Out">
-          <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
           <%= image_tag "logout.png", alt: "Sign Out", width: "32", height: "32"%>
         </small>
           <% end %>
         <% else %>
         <%= link_to "log in", new_user_session_path, class: "btn outline-outline-secondary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center", style: "color: #6c757d; border-color: #6c757d;"%>
         <%= link_to "sign up",  new_user_registration_path, class: "btn outline-outline-secondary my-2 my-sm-0 ms-2 d-flex align-items-center justify-content-center", style: "color: #6c757d; border-color: #6c757d;" %>
+
         <% end %>
       </div>
     </div>
