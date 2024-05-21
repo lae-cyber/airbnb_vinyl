@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_vinyl, only: [:new, :create]
   before_action :set_booking, only: [:show, :destroy]
-
   def new
     @vinyl = Vinyl.find(params[:vinyl_id])
     @booking = Booking.new
