@@ -3,7 +3,7 @@
     <h1 style="text-align: center;margin: 70px 0px 0px 0px; text-transform: uppercase; letter-spacing: 4px; color: #FFFFF;">Rent a Vinyl</h1>
     <p style="margin-bottom: 40px">
     <span data-controller="typed" data-typed-strings-value="<%= @text %>">
-    </span></p>
+    </span></p> 
     <%= link_to "Explore more", vinyls_path, class: "btn btn-dark explorebtn" %>
      <% unless user_signed_in? %>
       <%= link_to "Login",  user_session_path, class: "btn btn-dark loginbutton" %>
